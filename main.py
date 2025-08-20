@@ -1,6 +1,6 @@
 from src.vector_store import load_vector
 from src.prompt import prompt
-from src.helper import llm_load
+from src.utils import llm_load
 from llama_index.core.prompts import PromptTemplate
 from flask import Flask, render_template, jsonify, request
 

@@ -1,4 +1,4 @@
-from src.helper import *
+from src.utils import *
 from llama_index.core import VectorStoreIndex, StorageContext, load_index_from_storage
 from dotenv import load_dotenv
 import os

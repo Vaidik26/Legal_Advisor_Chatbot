@@ -7,7 +7,7 @@ from llama_index.core import Settings
 
 # LLM loading
 def llm_load():
-    model="gemini-2.5-flash"
+    model="gemini-2.5-pro"
     llm = GoogleGenAI(model=model)
     Settings.llm = llm
     return llm
