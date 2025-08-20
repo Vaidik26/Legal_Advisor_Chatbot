@@ -1,21 +1,21 @@
-## Legal Sathi — AI Legal Advisor for Indian Jurisdiction
+## ⚖️ Legal Sathi — AI Legal Advisor for Indian Jurisdiction
 
 An elegant, production‑ready chatbot that answers questions about Indian law using your curated legal PDFs. Built with Flask, LlamaIndex, Google GenAI (Gemini 2.5 Flash), and Hugging Face embeddings, with persistent local vector storage for fast, private retrieval.
 
-### Why this project
+### ✨ Why this project
 - **Accurate, context‑grounded answers**: Responses are constrained to your provided legal documents.
 - **Safety‑aware prompting**: Clear safety guidance and disclaimers for sensitive situations.
 - **Fast and private**: Local vector store in `./storage`, no external database required.
 - **Simple to run**: One‑time indexing, then start the Flask app and chat in your browser.
 
-### Demo (Local)
+### 🖥️ Demo (Local)
 - Start the app and open `http://localhost:8080`.
 - Ask: “What is the process to file an FIR?” or “Explain Section 190 of CrPC.”
 
 ---
 
 
-## Features
+## 🧠 Features
 - **Retrieval‑Augmented Generation (RAG)** over your legal PDFs in `data/`.
 - **Prompting tailored for Indian law** with safety and disclaimer logic (see `src/prompt.py`).
 - **Persistent vector index** so you index once and chat instantly next time.
@@ -23,7 +23,7 @@ An elegant, production‑ready chatbot that answers questions about Indian law u
 
 ---
 
-## Prerequisites
+## 📦 Prerequisites
 - Python 3.10+
 - A Google Generative AI API key (for Gemini)
 - A Hugging Face access token (for embeddings)
@@ -41,7 +41,7 @@ Notes:
 
 ---
 
-## Installation
+## 🛠️ Installation
 
 Clone and install dependencies (Windows PowerShell, macOS, or Linux):
 
@@ -63,12 +63,12 @@ uv pip install -r requirements.txt
 
 ---
 
-## Prepare your data
+## 📚 Prepare your data
 Place your legal PDFs inside the `data/` directory (already includes samples like Constitution, CPC, etc.). You can add or replace PDFs at any time.
 
 ---
 
-## One‑time: build the vector index
+## 🏗️ Build the vector index (one‑time)
 Run the following to embed documents and persist the index to `./storage`:
 
 ```bash
@@ -79,7 +79,7 @@ If you update files in `data/`, re‑run the same command to refresh the index.
 
 ---
 
-## Run the app
+## ▶️ Run the app
 
 ```bash
 python main.py
@@ -94,7 +94,7 @@ Default settings:
 
 ---
 
-## Configuration
+## 🔧 Configuration
 - LLM: set in `src/helper.py` (`GoogleGenAI(model="gemini-2.5-flash")`). You can swap to other supported Gemini models.
 - Embeddings: set in `src/helper.py` (`BAAI/bge-small-en-v1.5`). You can change to another HF embedding model with good retrieval quality.
 - Chunking: `SentenceSplitter(chunk_size=1000, chunk_overlap=150)` in `src/helper.py`.
@@ -102,7 +102,7 @@ Default settings:
 
 ---
 
-## Project structure
+## 🗂️ Project structure
 
 ```text
 Legal Advisor Chatbot/
@@ -122,7 +122,7 @@ Legal Advisor Chatbot/
 
 ---
 
-## How it works (high level)
+## 🔬 How it works (high level)
 1. Documents in `data/` are split into chunks.
 2. Each chunk is embedded using `BAAI/bge-small-en-v1.5` and stored in `./storage`.
 3. At query time, LlamaIndex retrieves the most relevant chunks.
@@ -130,7 +130,7 @@ Legal Advisor Chatbot/
 
 ---
 
-## Troubleshooting
+## 🧰 Troubleshooting
 - "GOOGLE_API_KEY not set" or LLM errors: ensure `.env` exists with a valid `GOOGLE_API_KEY` and the shell is restarted.
 - "HF_TOKEN not set" or embedding download failures: confirm `HF_TOKEN` is valid and has read access.
 - Index load errors: if `./storage` does not exist or is outdated, re‑run the indexing step.
@@ -138,18 +138,18 @@ Legal Advisor Chatbot/
 
 ---
 
-## Security and privacy
+## 🔒 Security and privacy
 - Your PDFs are processed locally and indexed to `./storage`.
 - Calls to the LLM provider (Gemini) send the user prompt and retrieved snippets; do not include private data you don’t want shared.
 
 ---
 
-## Disclaimer
+## 📜 Disclaimer
 This project provides general information about Indian laws and jurisprudence only. It does not constitute formal legal advice or establish an attorney‑client relationship. For specific legal matters, consult a qualified legal professional.
 
 ---
 
-## License
+## 📄 License
 Choose a license for your project (e.g., MIT, Apache 2.0) and update this section accordingly.
 
 
