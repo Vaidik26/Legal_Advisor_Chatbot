@@ -108,7 +108,7 @@ Default settings:
 Legal Advisor Chatbot/
 ├─ data/                       # Your legal PDFs
 ├─ src/
-│  ├─ helper.py                # LLM, embeddings, splitter
+│  ├─ utils.py                # LLM, embeddings, splitter, vector(loading)
 │  ├─ vector_store.py          # Index build/load utilities
 │  └─ prompt.py                # Domain‑specific system prompt
 ├─ storage/                    # Persisted vector index (auto‑created)
