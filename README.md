@@ -14,21 +14,6 @@ An elegant, production‑ready chatbot that answers questions about Indian law u
 
 ---
 
-## Architecture
-
-```mermaid
-flowchart LR
-  U[User] --> F[Flask App (main.py)]
-  F --> CE[LlamaIndex Chat Engine]
-  CE -->|LLM| G[Google GenAI\nGemini 2.5 Flash]
-  CE -->|Embeddings| H[Hugging Face\nBAAI/bge-small-en-v1.5]
-  H --> VS[VectorStoreIndex]
-  VS <--> ST[Persistent Storage\n./storage]
-  CE --> D[Context from PDFs\n./data]
-  F --> UI[HTML UI\ntemplates/home.html]
-```
-
----
 
 ## Features
 - **Retrieval‑Augmented Generation (RAG)** over your legal PDFs in `data/`.
