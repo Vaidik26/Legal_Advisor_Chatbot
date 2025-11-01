@@ -1,9 +1,12 @@
 from llama_index.core import SimpleDirectoryReader
+#from llama_index.embeddings.gemini import GeminiEmbedding
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.llms.google_genai import GoogleGenAI
 from llama_index.core import Settings
 from llama_index.core import StorageContext, load_index_from_storage
+from typing import List
+from llama_index.core.schema import Document
 from dotenv import load_dotenv
 import os
 
@@ -25,13 +28,14 @@ def load_documents(directory_path):
 
 # Embed documents
 def embedder():
-    Settings.embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
+    # Settings.embed_model = GeminiEmbedding(model_name="models/embedding-001")
+    Settings.embed_model = HuggingFaceEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2")
     return Settings.embed_model
     
 
 # Split documents into chunks
 def split_documents():
-    splitter = SentenceSplitter(chunk_size=1000, chunk_overlap=150)
+    splitter = SentenceSplitter(chunk_size=1000, chunk_overlap=200)
     return splitter
 
 # Loading the index
